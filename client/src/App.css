@@ -31,3 +31,43 @@
     transform: rotate(360deg);
   }
 }
+
+.dark-mode {
+  color: #fff;
+  background-color: #313843;
+}
+.dark-mode-toggle {
+  background: papayawhip;
+  border-radius: 50px;
+  border: 1px solid black;
+  height: 20px;
+  position: relative;
+  width: 40px;
+}
+.toggle {
+  background: #f68819;
+  border-radius: 50px;
+  height: 18px;
+  left: 0;
+  position: absolute;
+  transition: 0.2s;
+  width: 20px;
+}
+
+.toggled {
+  left: 18px;
+  background: #f68819;
+  border-radius: 50px;
+  height: 18px;
+  position: absolute;
+  transition: 0.2s;
+  width: 20px;
+} 
+
+ .cards {
+   border: 1px solid black;
+   box-shadow: 2px 4px black;
+   width: 300px;
+   margin: 10px;
+   padding: 5px;
+ }

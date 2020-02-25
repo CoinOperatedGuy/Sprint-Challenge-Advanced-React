@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
+import Cards from './components/ComponentDidMount';
+import axios from 'axios';
+import DarkMode from './components/DarkMode';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      people: []
+    }
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:5000/api/players')
+      .then( res => {
+        console.log('Response: ', res.data);
+        this.setState({people: res.data})
+      })
+      .catch(err => console.log('error: ', err))
+  }
+
+  handleChanges = e => {
+    this.setState({
+      person: e.target.value
+    })
+    console.log('state: ', e.target.value)
+  }
+
+  render() {
+    return(
+      <div>
+        <DarkMode />
+        { this.state.people.map( data => (
+          <Cards people={data} />
+        )) }
+      </div>
+    )
+  }
 }
 
 export default App;
