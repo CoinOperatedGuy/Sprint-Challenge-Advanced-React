@@ -23,7 +23,7 @@ class Cards extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className='cards'>
                 <p>Name: {this.state.person.name}</p>
                 <p>Country: {this.state.person.country}</p>
                 <p>Searches: {this.state.person.searches}</p>
